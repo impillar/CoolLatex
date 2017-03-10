@@ -1,0 +1,117 @@
+%==================2. COMMANDS FOR MODIFICATIONS TO THE PAPER==================
+\ifdefined \WithChanges
+    \newcommand{\todo}[1]{\textbf{\textcolor{blue}{TODO: #1}}}
+    %\newcommand{\comment}[1]{\textbf{\textcolor{green}{Comment: #1}}}
+    \newcommand{\alarm}[1]{\textbf{\textcolor{red}{Alarm: #1}}}
+    \newcommand{\deprecate}[1]{\textbf{\textcolor{red}{\{Deprecated: #1\}}}}
+    \newcommand{\question}[1]{\textbf{\textcolor{blue}{Question: #1}}}
+    \newcommand{\remove}[1]{}
+\else
+    \newcommand{\todo}[1]{\textbf{\textcolor{blue}{TODO: #1}}}
+    %\newcommand{\comment}[1]{\textbf{\textcolor{green}{Comment: #1}}}
+    \newcommand{\alarm}[1]{\textbf{\textcolor{red}{Alarm: #1}}}
+    \newcommand{\deprecate}[1]{\textbf{\textcolor{red}{\{Deprecated: #1\}}}}
+    \newcommand{\question}[1]{}
+    \newcommand{\remove}[1]{}
+\fi
+
+%==================3. COMMANDS FOR DEFINITIONS==================
+\newtheorem{mydef}{Definition}%[section]
+%Example for definitions:
+%   \begin{mydef}\label{thm:example}
+%       This is a definition.
+%   \end{mydef}
+%Use the following to cite: Definition~\ref{thm:example}
+
+%==================4. COMMANDS FOR CODE SNIPPET==================
+\definecolor{pblue}{rgb}{0.13,0.13,1}
+\definecolor{pgreen}{rgb}{0,0.5,0}
+\definecolor{pred}{rgb}{0.9,0,0}
+\definecolor{pgray}{rgb}{0.46,0.45,0.48}
+\definecolor{ppurple}{rgb}{1,0.2,1}
+\definecolor{pblack}{rgb}{0,0,0}
+\lstset{
+	basicstyle=\scriptsize\tt,
+	tabsize=4,
+	showstringspaces=false,
+	columns=flexible,
+	commentstyle=\color{pgreen},
+  	keywordstyle=\color{pblue},
+  	stringstyle=\color{ppurple},
+	breaklines=true,
+	language=Java,
+    showspaces=false,
+    numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+    numbersep=5pt,                   % how far the line-numbers are from the code
+    numberstyle=\tiny\color{pblack}, % the style that is used for the line-numbers
+    frame=single
+}
+%Example for code snippet:
+%\begin{figure}
+%\begin{center}
+%    \lstinputlisting{code/example.java}
+%    \caption{An example of Java program}\label{fig:example}
+%\end{center}
+%\end{figure}
+%Use the following to cite: Fig.~\ref{fig:example}
+
+%==================4. COMMANDS TO REDUCE THE SPACE==================
+\ifdefined \ReduceSpace
+    \addtolength{\parskip}{-1mm}
+    \addtolength{\floatsep}{-6mm}
+    \addtolength{\textfloatsep}{-6mm}
+    \addtolength{\abovecaptionskip}{-0.5mm}
+    \addtolength{\belowcaptionskip}{-0.5mm}
+\fi
+
+%==================5. COMMANDS FOR SQUIGGLE ARROW==================
+%Source: http://tex.stackexchange.com/questions/60216/how-to-create-a-squiggle-arrow-with-some-text-on-it-in-tikz
+%\newcounter{sarrow}
+%\newcommand\xrsquigarrow[1]{%
+%\stepcounter{sarrow}%
+%\mathrel{\begin{tikzpicture}[baseline= {( $ (current bounding box.south) + (0,-0.5ex) $ )}]
+%\node[inner sep=.5ex] (\thesarrow) {$\scriptstyle #1$};
+%\path[draw,<-,decorate,
+%  decoration={zigzag,amplitude=0.7pt,segment length=1.2mm,pre=lineto,pre length=4pt}]
+%    (\thesarrow.south east) -- (\thesarrow.south west);
+%\end{tikzpicture}}%
+%}
+%Example for squiggle arrow
+%   $s_1 \xrsquigarrow{e} s_2$
+
+%==================6. COMMANDS FOR SPACE BEFORE ITEMIZE==================
+\setitemize[0]{leftmargin=10pt}
+
+%==================7. COMMANDS FOR CODE IN PAPER==================
+\newcommand{\fonttt}[1]{\begin{ttfamily}#1\end{ttfamily}}
+%\textsf{\small ClassName}
+%\textsc{TOOL}
+\newcommand{\ourtool}{\textsc{EvoMal}}
+
+%=======================8. Change the width of line in table ====================
+%\Xhline{2\arrayrulewidth}
+\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;}
+
+%=======================9. Scale the width of table if beyond the width ====================
+%\usepackage{adjustbox}
+%\begin{table}
+%\begin{center}
+%\caption{Sample}\label{tbl:sample}
+%\begin{adjustbox}{width=0.48\textwidth}
+%\begin{tabular}{|c|c|}
+%\hline
+%a & b  \\ \hline
+%1 & 2  \\ \hline
+%\end{tabular}
+%\end{adjustbox}
+%\end{center}
+%\end{table}
+
+%========================10. the pie chart===========================
+\newcommand{\pie}[1]{%
+\begin{tikzpicture}
+ \draw (0,0) circle (0.8ex);
+ \ifthenelse{#1 > 0}{\fill (0.8ex,0) arc (0:#1:0.8ex) -- (0,0) -- cycle;}{}
+\end{tikzpicture}%
+}
+%Example: \pie{} 

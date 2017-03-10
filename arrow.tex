@@ -1,0 +1,46 @@
+\section{Arrow}
+
+\subsection{Squiggle arrow}
+
+\noindent\textbf{Required packages: tikz, amsmath, amssymb}
+%Source: http://tex.stackexchange.com/questions/60216/how-to-create-a-squiggle-arrow-with-some-text-on-it-in-tikz
+
+The squiggle arrow is drawn by \textsf{tikz}~\cite{squigglearrow}, and the code is as follows:
+
+\begin{lstlisting}
+\documentclass{...}
+\usepackage{tikz}
+\usepackage{amsmath,amssymb}
+
+\usetikzlibrary{calc,decorations.pathmorphing,shapes}
+\newcounter{sarrow}
+\newcommand\xrsquigarrow[1]{%
+\stepcounter{sarrow}%
+\mathrel{\begin{tikzpicture}[baseline= {( $ (current bounding box.south) + (0,-0.5ex) $ )}]
+\node[inner sep=.5ex] (\thesarrow) {$\scriptstyle #1$};
+\path[draw,<-,decorate,
+  decoration={zigzag,amplitude=0.7pt,segment length=1.2mm,pre=lineto,pre length=4pt}]
+    (\thesarrow.south east) -- (\thesarrow.south west);
+\end{tikzpicture}}%
+}
+
+\begin{document}
+\[ s_1 \xrsquigarrow{e} s_2 \]
+\end{document}
+\end{lstlisting}
+
+With the above code, you can draw a squiggle arrow as follows:
+
+\[ s_1 \xrsquigarrow{e} s_2 \]
+
+With the following code, you can draw more styles of arrows as follows:
+
+\begin{lstlisting}
+\[
+A\xrightarrow{f} B\quad A\rightsquigarrow B\quad A\xrsquigarrow{f}B\quad A\xrsquigarrow{(f\circ g)\circ h}B
+\]
+\end{lstlisting}
+
+\[
+A\xrightarrow{f} B\quad A\rightsquigarrow B\quad A\xrsquigarrow{f}B\quad A\xrsquigarrow{(f\circ g)\circ h}B
+\]

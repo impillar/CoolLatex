@@ -1,0 +1,73 @@
+\section{Code Snippet}
+
+\noindent\textbf{Required packages: listtings, xcolor}
+
+The latex code below is to define the style for ``lstset''. If you want to import a code snippet, you need to write the code as Listing~\ref{list:lst} and refers it by ``$\setminus ref\{list:lst\}$''.
+
+%==================4. COMMANDS FOR CODE SNIPPET==================
+\begin{lstlisting}[caption=Style definition for lstset]
+\definecolor{pblue}{rgb}{0.13,0.13,1}
+\definecolor{pgreen}{rgb}{0,0.5,0}
+\definecolor{pred}{rgb}{0.9,0,0}
+\definecolor{pgray}{rgb}{0.46,0.45,0.48}
+\definecolor{ppurple}{rgb}{1,0.2,1}
+\definecolor{pblack}{rgb}{0,0,0}
+\lstset{
+	basicstyle=\scriptsize\tt,
+	tabsize=4,
+	showstringspaces=false,
+	columns=flexible,
+	commentstyle=\color{pgreen},
+  	keywordstyle=\color{pblue},
+  	stringstyle=\color{ppurple},
+	breaklines=true,
+	language=Java,
+    showspaces=false,
+    numbers=left, 
+    numbersep=5pt,
+    numberstyle=\tiny\color{pblack},
+    frame=single
+}
+
+\end{lstlisting}
+
+% where to put the line-numbers; possible values are (none, left, right)
+% how far the line-numbers are from the code
+% the style that is used for the line-numbers
+\begin{lstlisting}[label=list:lst,caption=Example for lstset]
+\begin{lstlisting}[label=list:lst,caption=Example for lstset]
+Your code here
+\end{lstlisting }
+\end{lstlisting}
+
+\subsection{Putting your code into figure}
+
+\begin{lstlisting}
+\begin{figure}
+\begin{center}
+    \lstinputlisting{code/example.java}         %the location of your code
+    \caption{An example of Java program}\label{fig:example}
+\end{center}
+\end{figure}
+\end{lstlisting}
+
+\subsection{Setting width of frame}
+
+\begin{lstlisting}[label=list:lst,caption=Setting width of frame,linewidth=0.8\textwidth]
+\begin{lstlisting}[label=list:lst,caption=Setting with of frame,linewidth=0.8\textwidth]
+Your code here
+\end{lstlisting }
+\end{lstlisting}
+
+You can set ``\textsf{xleftmargin}'' and ``\textsf{xrightmargin}'' properties to adjust the position in the page.
+%Use the following to cite: Fig.~\ref{fig:example}
+
+\subsection{Frame style of code}
+
+The style of frame can be adjusted by the property ``\textsf{frame}''. The frame is not shown by default or setting the property ``\textsf{frame}'' to ``none''.
+
+\begin{lstlisting}[label=list:lst,caption=Frame style of the code,frame=shadowbox]
+\begin{lstlisting}[label=list:lst,caption=Frame style of the code,frame=shadowbox]
+Your code here
+\end{lstlisting }
+\end{lstlisting}

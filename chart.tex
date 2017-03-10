@@ -1,0 +1,10 @@
+\section{Pie Chart}
+\noindent\textbf{Required packages: }
+\begin{lstlisting}
+\newcommand{\pie}[1]{%
+\begin{tikzpicture}
+ \draw (0,0) circle (0.8ex);
+ \ifthenelse{#1 > 0}{\fill (0.8ex,0) arc (0:#1:0.8ex) -- (0,0) -- cycle;}{}
+\end{tikzpicture}%
+}
+\end{lstlisting}
