@@ -1,0 +1,28 @@
+\section{Saving Space}
+
+\subsection{Reduce marginal space}
+\begin{lstlisting}
+\ifdefined \ReduceSpace
+    \addtolength{\parskip}{-1mm}
+    \addtolength{\floatsep}{-6mm}
+    \addtolength{\textfloatsep}{-6mm}
+    \addtolength{\abovecaptionskip}{-0.5mm}
+    \addtolength{\belowcaptionskip}{-0.5mm}
+\fi
+\end{lstlisting}
+
+\subsection{Remove ACM permission}
+\noindent\textbf{Required Packages: etoolbox}
+\begin{lstlisting}
+\documentclass[xxx]
+\usepackage{etoolbox}
+
+\makeatletter
+\patchcmd{\maketitle}{\@copyrightspace}{}{}{}
+\makeatother
+
+\maketitle
+\begin{document}
+...
+\end{document}
+\end{lstlisting}
