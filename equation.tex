@@ -1,0 +1,38 @@
+\section{Equation}
+
+\subsection{Aligning equations}
+
+If you are going to list more than one equation in an aligned manner, you can use the \emph{split} or \emph{aligned} in the package \emph{amsmath}. Two samples are shown as below:
+
+\begin{lstlisting}
+\begin{equation} \label{eq:align_sample_1}
+a = \sum_{i=1}^{n} i \\
+b = \frac{(n+1)(n+2)}{n!}
+\end{equation}
+\end{lstlisting}
+
+\begin{equation} \label{eq:align_sample_1}
+\begin{split}
+a &= \sum_{i=1}^{n} i \\
+b &= \frac{(n+1)(n+2)}{n!}
+\end{split}
+\end{equation}
+
+\begin{lstlisting}
+\begin{equation} \label{eq:align_sample_2}
+\begin{aligned}
+F ={} & \{F_{x} \in  F_{c} : (|S| > |C|) \\
+      & \cap (\mathrm{minPixels}  < |S| < \mathrm{maxPixels}) \\
+      & \cap (|S_{\mathrm{conected}}| > |S| - \epsilon)\}
+\end{aligned}
+\end{equation}
+\end{lstlisting}
+
+
+\begin{equation} \label{eq:align_sample_2}
+\begin{aligned}
+F ={} & \{F_{x} \in  F_{c} : (|S| > |C|) \\
+      & \cap (\mathrm{minPixels}  < |S| < \mathrm{maxPixels}) \\
+      & \cap (|S_{\mathrm{conected}}| > |S| - \epsilon)\}
+\end{aligned}
+\end{equation}
