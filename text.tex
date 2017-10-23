@@ -1,0 +1,20 @@
+\section{Text Manipulation}
+
+\subsection{Breakline for lone text}
+
+If you want to force a breakline for a lone text, you can define a command:
+
+\begin{lstlisting}
+\newcommand{\hash}[1]{\texttt{\zz#1\zz}}
+\def\zz#1{%
+ \ifx\zz#1\else
+   #1\linebreak[1]\expandafter\zz
+ \fi}
+\end{lstlisting}
+
+Then, you can use the following command to show the long SHA512 value ``\hash{d2d93feb596c5c527b5fd72d50f49044f33af2a051ce957c81aa31897d2076aab34e4edbc2e33128c3f0091fc2fdc9232a348721293e2038475c635c3bcce081}''.
+
+\begin{lstlisting}
+\hash{d2d93feb596c5c527b5fd72d50f49044f33af2a051ce957c81aa31897d2076aab34e4edbc2e331
+28c3f0091fc2fdc9232a348721293e2038475c635c3bcce081}
+\end{lstlisting}

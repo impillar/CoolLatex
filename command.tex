@@ -115,3 +115,11 @@
 \end{tikzpicture}%
 }
 %Example: \pie{} 
+
+%=================11. breakline for a long text=======================
+\newcommand{\hash}[1]{\texttt{\zz#1\zz}}
+
+\def\zz#1{%
+ \ifx\zz#1\else
+   #1\linebreak[1]\expandafter\zz
+ \fi}
